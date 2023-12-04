@@ -83,7 +83,7 @@ namespace JwtAuth.Core.Services
 
             return new AuthServiceResponseDto() 
             {
-                IsSuccess = false,
+                IsSuccess = true,
                 Message = "User is now Admin" 
             };
         }
@@ -103,7 +103,7 @@ namespace JwtAuth.Core.Services
 
             return new AuthServiceResponseDto() 
             { 
-                IsSuccess = false,
+                IsSuccess = true,
                 Message = "User is now Owner" 
             };
         }
@@ -139,7 +139,7 @@ namespace JwtAuth.Core.Services
                 }
                 return new AuthServiceResponseDto() 
                 { 
-                    IsSuccess = true, 
+                    IsSuccess = false, 
                     Message = errorString 
                 };
             }
@@ -149,7 +149,7 @@ namespace JwtAuth.Core.Services
 
             return new AuthServiceResponseDto()
             {
-                IsSuccess = false,
+                IsSuccess = true,
                 Message = "User Created Sucessfully"
             };
         }
