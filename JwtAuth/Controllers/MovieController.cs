@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using JwtAuth.Core.OtherObjects;
 using JwtAuth.Data;
 using JwtAuth.Data.Dtos;
 using JwtAuth.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,6 +33,7 @@ public class MovieController : ControllerBase
     /// <param name="movie">Objet with nedeed filds to creat a movie</param>
     /// <returns>IActionResult</returns>
     /// <reponse code="201">Returns the newly created item</reponse>
+  
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AddMovie([FromBody] CreateMovieDto movie)
@@ -94,7 +97,9 @@ public class MovieController : ControllerBase
         _context.SaveChanges();
         return NoContent();
     }
+
     [HttpDelete("{id}")]
+    [Authorize(Roles = StaticUserRole.ADMIN)]
     public IActionResult DeleteMovie(int id)
     {
         var movieToDelete = _context.Movies.FirstOrDefault(movie => movie.Id == id);
