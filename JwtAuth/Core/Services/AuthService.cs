@@ -63,7 +63,7 @@ namespace JwtAuth.Core.Services
 
             return new AuthServiceResponseDto() 
             { 
-                IsSuccess = false, 
+                IsSuccess = true, 
                 Message = token 
             };
         }
