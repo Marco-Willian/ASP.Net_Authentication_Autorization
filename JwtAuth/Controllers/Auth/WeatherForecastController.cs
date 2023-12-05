@@ -2,7 +2,7 @@ using JwtAuth.Core.OtherObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JwtAuth.Controllers
+namespace JwtAuth.Controllers.Auth
 {
     [ApiController]
     [Route("[controller]")]

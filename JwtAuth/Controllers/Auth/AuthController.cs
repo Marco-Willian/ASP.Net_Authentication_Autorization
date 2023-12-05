@@ -11,7 +11,7 @@ using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Text;
 
-namespace JwtAuth.Controllers
+namespace JwtAuth.Controllers.Auth
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -41,7 +41,7 @@ namespace JwtAuth.Controllers
         {
             var registerResult = await _authService.ResgisterAsync(resgisterDto);
 
-            if(registerResult.IsSuccess)
+            if (registerResult.IsSuccess)
                 return Ok(registerResult);
 
             return BadRequest(registerResult);
@@ -54,8 +54,8 @@ namespace JwtAuth.Controllers
         {
             var loginResult = await _authService.LoginAsync(loginDto);
 
-            if(loginResult.IsSuccess)
-               return Ok(loginResult);
+            if (loginResult.IsSuccess)
+                return Ok(loginResult);
             return BadRequest(loginResult);
         }
 
